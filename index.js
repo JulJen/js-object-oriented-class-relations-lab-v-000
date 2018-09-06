@@ -37,7 +37,7 @@ class Passenger {
     store.passengers.push(this)
   }
   driver() {
-    return store.drivers.filter(function(driver) {
+    return store.drivers.find(function(driver) {
       return driver.id === this.driverId
     })
   }
