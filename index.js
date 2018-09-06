@@ -1,10 +1,6 @@
 // A driver has many trips, and has many passengers through trips.
-
-
 // new Driver() - initialized with a name; returns a JavaScript object that has attributes of id, and name
-// trips() - returns all of the trips that a driver has taken
-// passengers() - returns all of the passengers that a driver has taken on a trip
-let store = {drivers: []}
+let store = {drivers: [], passengers: []}
 
 let driverId = 0
 
@@ -16,10 +12,13 @@ class Driver {
   }
 }
 
-// A passenger has many trips, and has many drivers through trips.
-// new Passenger() - initialized with a name; returns a JavaScript object that has attributes of id, and name
-// trips() - returns all of the trips that a passenger has taken
-// drivers() - returns all of the drivers that has taken a passenger on a trip
+class Passenger {
+  constructor(name) {
+    this.id = ++driverId
+    this.name = name
+    store.passengers.push(this)
+  }
+}
 
 
 
