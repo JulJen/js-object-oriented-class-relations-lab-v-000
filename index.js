@@ -6,6 +6,7 @@
 
 let store = { drivers: [], passengers: [], trips: [] }
 
+
 let driverId = 0
 
 class Driver {
@@ -14,18 +15,19 @@ class Driver {
     this.name = name;
     store.drivers.push(this)
   }
+
   trips() {
     return store.trips.filter(function(trip) {
       return trip.driverId === this.id
     })
   }
+
   passengers() {
     return this.trips().map(function(trip) {
       return trip.passenger()
     })
   }
 }
-
 
 
 let passengerId = 0
@@ -36,11 +38,13 @@ class Passenger {
     this.name = name;
     store.passengers.push(this)
   }
+
   trips() {
     return store.trips.filter(function(trip) {
       return trip.passengerId === this.id
     })
   }
+
   drivers() {
     return this.trips().map(function(trip) {
       return trip.driver()
