@@ -36,12 +36,12 @@ class Passenger {
     this.name = name
     store.passengers.push(this)
   }
-  trips() {
+  trip() {
     return store.trips.filter(function(trip) {
       return trip.passengerId === this.id
     })
   }
-  drivers() {
+  driver() {
     return this.trips().map(function(trip){
       return trip.driver()
     })
