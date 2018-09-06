@@ -36,13 +36,12 @@ class Passenger {
     this.name = name
     store.passengers.push(this)
   }
-  driver() {
-    return store.drivers.find(function(driver) {
-      return driver.id === this.driverId
+  trips() {
+    return store.trips.filter(trip => {
+      return trip.driverId === this.id
     })
   }
-}
-
+  }
 
 
 let tripId = 0
