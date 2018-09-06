@@ -14,15 +14,14 @@ class Driver {
     this.name = name
     store.drivers.push(this)
   }
-
-  trips() {
-    return store.trips.filter(trip => {
-      return trip.driverId === this.id
-    })
-  }
   passengers() {
     return this.trips().filter(trip => {
       return trip.passenger()
+    })
+  }
+  trips() {
+    return store.trips.filter(trip => {
+      return trip.driverId === this.id
     })
   }
 }
