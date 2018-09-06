@@ -47,7 +47,7 @@ class Passenger {
 
   trips() {
     return store.trips.filter(function(trip) {
-      return trip.passengerId = this.id;
+      return trip.passengerId === this.id;
     })
   }
 
@@ -77,7 +77,7 @@ class Trip {
     if(passenger) {
       this.passengerId = passenger.id;
     }
-    
+
     store.trips.push(this)
   }
 
