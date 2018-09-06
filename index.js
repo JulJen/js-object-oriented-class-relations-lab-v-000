@@ -16,7 +16,7 @@ class Driver {
   }
   passengers() {
     return this.trips().filter(trip => {
-      return trip.passengerId
+      return trip.passenger
     })
   }
   trips() {
