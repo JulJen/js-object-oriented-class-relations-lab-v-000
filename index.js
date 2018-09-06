@@ -37,11 +37,11 @@ class Passenger {
     store.passengers.push(this)
   }
   trips() {
-    return store.trips.filter(trip => {
-      return trip.driverId === this.id
+    return store.trips.filter( trip => {
+      return trip.passengerId === this.id
     })
   }
-  }
+}
 
 
 let tripId = 0
