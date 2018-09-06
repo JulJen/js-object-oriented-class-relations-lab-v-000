@@ -36,11 +36,11 @@ class Passenger {
     this.name = name
     store.passengers.push(this)
   }
-  driver() {
-    return store.drivers.find(function(driver) {
-      return driver.id === this.driverId
-    })
-  }
+  // driver() {
+  //   return store.drivers.find(function(driver) {
+  //     return driver.id === this.driverId
+  //   })
+  // }
 }
 
 
