@@ -42,7 +42,7 @@ class Passenger {
     })
   }
   trips() {
-    return store.trips.find(trip => {
+    return store.trips.filter(trip => {
       return trip.driverId === this.id
     })
   }
