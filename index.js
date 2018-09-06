@@ -1,7 +1,10 @@
 // A driver has many trips, and has many passengers through trips.
 //
 // new Driver() - initialized with a name; returns a JavaScript object that has attributes of id, and name
-let store = {drivers: [], passengers: [], trips: []}
+// trips() - returns all of the trips that a driver has taken
+// passengers() - returns all of the passengers that a driver has taken on a trip
+
+let store = { drivers: [], passengers: [], trips: [] }
 
 let driverId = 0
 
@@ -11,7 +14,19 @@ class Driver {
     this.name = name
     store.drivers.push(this)
   }
+  passengers() {
+    return store.passengers.filter(trip => {
+      return trip.passengerId === this.id
+    })
+  }
+  trips() {
+    return store.trips.filter(trip => {
+      return trip.driverId === this.id
+    })
+  }
 }
+
+
 
 let passengerId = 0
 
@@ -21,25 +36,43 @@ class Passenger {
     this.name = name
     store.passengers.push(this)
   }
+  driver() {
+    return store.drivers.filter(function(driver) {
+      return driver.id === this.driverId
+    })
+  }
 }
+
+
 
 let tripId = 0
 
 class Trip {
-  constructor(name, user) {
+  constructor(driver, passenger) {
     this.id = ++tripId
     this.name = name
-    if(user) {
-      this.userId = user.id
+    if(driver) {
+      this.driverId = driver.id
+    }
+    if(passenger) {
+      this.passengerId = passenger.id
     }
     store.trips.push(this)
   }
-  setUser(user){
-    this.userId = user.id
+  setDriver(driver){
+    this.driverId = driver.id
   }
-  user() {
-    return store.users.find(function(user) {
-      return user.id === this.userId
+  setPassenger(passenger){
+    this.passengerId = passengerId.id
+  }
+  driver() {
+    return store.drivers.find(function(driver) {
+      return driver.id === this.driverId
+    })
+  }
+  passenger() {
+    return store.passengers.find(function(passenger) {
+      return passenger.id === this.passengerId
     })
   }
 }
